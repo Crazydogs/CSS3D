@@ -1,0 +1,36 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+
+.index{
+  position: fixed;
+  top: 100px;
+  left: -180px;
+  border-right: 1px solid #ddd;
+  width: 200px;
+  height: 400px;
+  background: #fff;
+}
+.index ul{
+  list-style: none;
+  overflow: scroll;
+  height: 400px;
+}
+.index li{
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.view{
+  padding: 80px 200px;
+}
+.page{
+  display: none;
+  font-size: 18px;
+  line-height: 24px;
+}
+.page_active{
+  display: block;
+}
