@@ -1,4 +1,5 @@
 ;(function initIndex(){
+  var $wrap = $('.index');
   var $ul = $('.index ul');
   var $pages = $('.page');
   $pages.eq(0).addClass('page_active');
@@ -6,11 +7,22 @@
     // 给目录增加项目
     var $newLi = $('<li>');
     $newLi.text($pages.eq(i).data('title'));
+    $newLi.data('page',i+1);
     $newLi.appendTo($ul);
 
     // 为个个页面加上页码
     $pages.eq(i).data('num', i+1);
   }
+  $ul.mouseover(function(){
+    $wrap.css('left','0');
+  });
+  $ul.mouseout(function(){
+    $wrap.css('left','-200px');
+  });
+  $ul.click(function(e){
+    var $target = $(e.target);
+    changePage($target.data('page'));
+  });
 })();
 
 ;(function initEvent(){

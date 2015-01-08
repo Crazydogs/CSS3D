@@ -7,11 +7,20 @@ html,body{
 .index{
   position: fixed;
   top: 100px;
-  left: -180px;
+  left: -200px;
   border-right: 1px solid #ddd;
-  width: 200px;
-  height: 400px;
+  width: 250px;
   background: #fff;
+  transition: left 300ms ease;
+}
+.index .arrow{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-right: 10px solid #999;
+  border-top: 10px solid #fff;
+  border-bottom: 10px solid #fff;
 }
 .index ul{
   list-style: none;

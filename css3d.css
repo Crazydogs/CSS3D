@@ -1,3 +1,7 @@
+body{
+  font-family: "Microsoft YaHei", "微软雅黑";
+}
+
 /* 基础示例 */
 .css3d-rotate-list{
   list-style: none;
