@@ -1,1 +1,302 @@
-Hello World
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="ppt.css">
+  <link rel="stylesheet" type="text/css" href="css3d.css">
+  <script src="jquery.js"></script>
+  <script src="css3d.js"></script>
+</head>
+<body>
+
+  <div class="index">
+    <ul>
+    </ul>
+  </div>
+
+
+  <div class="view">
+
+    <div class="page" data-title="首页">
+      <div class="page-container">
+        <h1>css3 实现 3d 效果</h1>
+        <p>按上下方向键翻页</p>
+      </div>
+    </div>
+
+    <div class="page" data-title="基础">
+      <div class="page-container">
+        <h1>基础</h1>
+        <ul>
+          <li>
+            transform-style</br>
+            如果需要渲染3d效果，在父元素上要加上 transform-style: preserve-3d 这个属性
+          </li>
+          <li>
+            perspective</br>
+            渲染时视点与屏幕距离
+          </li>
+          <li>
+            perspective-origin</br>
+            视点的位置
+          </li>
+        </ul>
+        当然，主要还是 transform 属性。
+      </div>
+    </div>
+
+    <div class="page" data-title="3D transform">
+      <div class="page-container">
+        <h1>3D transform</h1>
+        <ul class="css3d-rotate-list">
+          <li>
+            <div class="css3d-rotate css3d-rotate-rotatex">
+              rotateX
+            </div>
+          </li>
+          <li>
+            <div class="css3d-rotate css3d-rotate-rotatey">
+              rotateY
+            </div>
+          </li>
+          <li>
+            <div class="css3d-rotate css3d-rotate-rotatez">
+              rotateZ
+            </div>
+          </li>
+        </ul>
+        这里说一个判断旋转方向的方法。就像我们高中物理学电磁感应一样，伸出左手，拇指指向坐标轴的正方向（x向右，y向下，z向着自己），其他手指环绕的方向就是旋转的正方向
+      </div>
+    </div>
+
+    <div class="page" data-title="视点">
+      <div class="page-container">
+        <h1>视点</h1>
+        <div class="css3d-perspective">
+          <div class="css3d-perspective-obj css3d-perspective-obj1">
+            perspective
+          </div>
+          <div class="css3d-perspective-obj css3d-perspective-obj2">
+            perspective
+          </div>
+          <div class="css3d-perspective-obj css3d-perspective-obj3">
+            perspective
+          </div>
+        </div>
+        <div style="margin-left:400px;padding-top:100px;">
+          这是尺寸为250的正方体的3个面</br>
+          渲染的结果回随着视点的距离产生变化</br>
+          </br>
+          @keyframes perspective{</br>
+          &nbsp;&nbsp;from {perspective:100;}</br>
+          &nbsp;&nbsp;50% {perspective: 900;}</br>
+          &nbsp;&nbsp;to {perspective: 100;}</br>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="page" data-title="组合应用">
+      <div class="page-container">
+        <h1>组合应用</h1>
+        <p>
+          有了上面几个规则之后，理论上我们就能直接用 css 构造任意的 3d 模型了。就算是曲面，也可以用多个小的平面拼接而成。
+        </p>
+        <div class="css3d-cylinder">
+          <div class="css3d-cylinder-plane css3d-cylinder-plane1"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane2"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane3"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane4"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane5"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane6"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane7"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane8"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane9"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane10"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane11"></div>
+          <div class="css3d-cylinder-plane css3d-cylinder-plane12"></div>
+        </div>
+        <p>
+          单单拼出一个正方体或者圆柱体，还是不够炫酷，只是为了 3D 而 3D 那就没有意义了。但其实只要加上一点点图片的装饰……
+        </p>
+      </div>
+    </div>
+
+    <div class="page" data-title="组合应用2">
+      <div class="page-container">
+        <div class="css3d-startbg">
+          <div class="css3d-startbg-box">
+            <div class="css3d-startbg1"></div>
+            <div class="css3d-startbg2"></div>
+            <div class="css3d-startbg3"></div>
+            <div class="css3d-startbg4"></div>
+            <div class="css3d-startbg5"></div>
+            <div class="css3d-startbg6"></div>
+            <div class="css3d-startbg7"></div>
+            <div class="css3d-startbg8"></div>
+            <div class="css3d-startbg9"></div>
+            <div class="css3d-startbg10"></div>
+            <div class="css3d-startbg11"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" data-title="问题">
+      <div class="page-container">
+        <p>
+          上一页其实是一个弧形的背景的效果，不过由于没找到特别合适的图片，效果比较不明显。</br>
+          到目前为止看似非常美好，但是，实际上的应用……还是有很多问题的。</br>
+        </p>
+        <p>
+          当然有许多的小问题，浏览器兼容性，图像素材，视点渲染启动的额外条件等等。
+          还有一个最大的问题就是，css 的代码量，上一页中简单的一个圆柱体的动画，就算只写-webkit-前缀，也要差不多100多行。手写 css 除非真是非常有时间，不然还是很不靠谱的。另外 css 里面放这么多东西，也是很难维护的</br>
+          于是我试着写了一个简单的版本，还没有实现生成动画的功能。代码就是这个页面引用的 css3d.js，但还没有比较好地实现自动生成动画的功能。
+        </p>
+      </div>
+    </div>
+
+    <div class="page" data-title="解决方案">
+      <div class="page-container">
+        <p>
+          对一个元素进行 3d 变换的时候，是按照 transform 中各种方法的顺序来执行的。也就是说，下面这两种写法，得到的是不同的结果</br>
+          transform: rotateY(90deg) translateZ(100px);</br>
+          transform: translateZ(100px) rotateY(90deg);</br>
+        </p>
+        <p>
+          先旋转后平移和先平移后旋转，可以理解为分别对应球坐标和直角坐标两种坐标系，虽然理论上可以相互转换，但还是有些麻烦，特别是在转化为球坐标的时候。球坐标系比较适用于上面示例用到的中心对称很强的图形。
+        </p>
+        <p>
+          相信聪明的你已经想到了，transform 其实并不是对多个变换的简单组合的一个属性，而是对多个变换的顺序执行。也就是说，像下面这样也是可以的。</br>
+          transform: rotateY(90deg) translateZ(-100px) rotateY(-90deg);</br>
+          这个其实和向左平移 100px 的结果是完全相同的。也就是说使用球坐标的时候，平面的法线并不需要通过空间的原点。</br>
+          PS：这里其实也有个容易忽略的问题，旋转的时候，如果想要还原原来的方向，旋转不止角度要相反，方向顺序也要相反。如下</br>
+          transform: rotateY(30deg) rotateX(40deg) translateZ(-100px) rotateX(-40deg) rotateY(-30deg);
+        </p>
+        <p>
+          程序主要分为两个部分，一个是用球坐标系构建对称的对面体的，另一部分就是直角坐标系了。
+        </p>
+      </div>
+    </div>
+
+    <div class="page" data-title="示例1">
+      <div class="page-container">
+        <h1>示例</h1>
+        <div class="tag-clound"></div>
+        <div>这是文字位于一个球面上，稍微修改一下就能做成一个以前还挺流行的云标签的效果了。</div>
+      </div>
+    </div>
+
+    <div class="page" data-title="示例2">
+      <div class="page-container">
+        <h1>示例</h1>
+        <div class="start-system"></div>
+      </div>
+    </div>
+
+    <div class="page" data-title="示例3">
+      <div class="page-container">
+        <h1>示例</h1>
+        <div class="switch-button">
+          <div class="switch-button-container">
+            <div class="switch-button-left switch-button-side">ON</div>
+            <div class="switch-button-right switch-button-side">OFF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" data-title="tips">
+      <div class="page-container">
+        <p>
+          总结一下容易碰到的小问题</br>
+          1、兼容性</br>
+          目前 chrome 的兼容性是最好的，基本不用加前缀，除了 animation。FireFox 30之后能够支持，同样不需要前缀，但却不支持 perspective 也就是视点属性，所以透视是做不了了。</br>
+          2、视点透视渲染的启动条件</br>
+          即使设置了 perspective 属性，如果容器中的子元素没有进深的区别的话，浏览器不会触发透视的渲染，问题容易出现在做动画的时候，如果一开始没有进深，渐变到有进深的过程是不会有透视效果的。</br>
+          3、图片素材</br>
+          之前那个图片效果可能不明显，其实是一个弧形的背景，有时候形状是做出来了，但是贴图并不如平时的页面素材那么好找，而且如果模型比较复杂，图片可能需要很大。</br>
+          4、屏幕适配</br>
+          由于各种变换中，使用百分比的难度还是比较大，在不同分辨率的适配上，可能额外考虑。</br>
+          5、关于 rotate3d</br>
+          这个是给没仔细看文档的人提个醒，不要想当然地以为 rotate3d 和 translate3d 一样是吧3个轴的变换拼起来。</br>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="ppt.js"></script>
+  <script>
+    var $clound = $('.tag-clound');
+    css3d.setContainer($clound).setStyle({
+      'textAlign': 'center'
+    });
+    for(var i=0; i< 30; i++){
+      css3d.createPlane(2, {
+        x:Math.random()*360, y:Math.random()*360, z:0, r:100
+      },{
+        w:80, h:30
+      },'tag '+i);
+    }
+    var $start = $('.start-system');
+    css3d.setContainer($start)
+    css3d.setStyle({
+      'background': '',
+      'border': '1px solid #bbb',
+      'borderRadius': '100%'
+    });
+    css3d.createPlane(3, {
+      x:0, y:0, z:0, rx:90, ry:0, rz:0
+    },{
+      w:400, h:400
+    });
+    css3d.createPlane(3, {
+      x:0, y:0, z:0, rx:90, ry:0, rz:0
+    },{
+      w:600, h:600
+    });
+    css3d.setStyle({
+      'borderRadius': '100%',
+      'background': '#666'
+    });
+    css3d.createPlane(2, {
+      x:0, y:0, z:0, r:0
+    },{
+      w:80, h:80
+    });
+    css3d.setStyle({
+      'borderRadius': '100%',
+      'background': '#666',
+      'animation': 'rotate1 6s linear infinite',
+      '-webkit-animation': 'rotate1 6s linear infinite'
+    });
+    css3d.createPlane(2, {
+      x:0, y:30, z:0, r:200
+    },{
+      w:40, h:40
+    });
+    css3d.setStyle({
+      'borderRadius': '100%',
+      'background': '#666',
+      'animation': 'rotate2 10s linear infinite',
+      '-webkit-animation': 'rotate2 10s linear infinite'
+    });
+    css3d.createPlane(2, {
+      x:0, y:90, z:0, r:300
+    },{
+      w:50, h:50
+    });
+    var switchButton = $('.switch-button');
+    var switchLeft = switchButton.find('.switch-button-left');
+    var switchRight = switchButton.find('.switch-button-right');
+    switchLeft.click(function(){
+        switchLeft.css('transform','rotateY(0deg)');
+        switchRight.css('transform','rotateY(-30deg)');
+    });
+    switchRight.click(function(){
+        switchLeft.css('transform','rotateY(30deg)');
+        switchRight.css('transform','rotateY(0deg)');
+    });
+  </script>
+</body>
+</html>
